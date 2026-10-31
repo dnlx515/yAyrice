@@ -1,0 +1,75 @@
+/* Palette unica (tramonto):
+   base #161014  surface #2A2028  testo #F2EDE4
+   accento #F2A98C  muted #B9A49D  linea/blu-grigio #4C4E61 / #7D89A6 */
+* {
+  font-family: "CaskaydiaCove Nerd Font", "Noto Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+window#waybar {
+  background: rgba(22, 16, 20, 0.72);
+  color: #F2EDE4;
+  border: 1px solid rgba(242, 169, 140, 0.45);
+  border-radius: 16px;
+}
+
+#workspaces,
+#window,
+#tray,
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#clock {
+  margin: 4px 3px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+#workspaces button {
+  color: #7D89A6;
+  padding: 0;
+  margin: 0 5px;
+  min-width: 32px;
+  min-height: 24px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  outline: none;
+}
+
+#workspaces button.active {
+  color: #161014;
+  background: #F2A98C;
+  box-shadow: none;
+}
+
+#workspaces button:hover {
+  color: #F2A98C;
+  background: rgba(242, 169, 140, 0.18);
+  box-shadow: none;
+}
+
+#workspaces button label {
+  padding: 0 4px 0 0;
+}
+
+#window {
+  color: #F2EDE4;
+}
+
+#clock {
+  color: #F2A98C;
+}
+
+tooltip {
+  background: rgba(22, 16, 20, 0.96);
+  color: #F2EDE4;
+  border: 1px solid rgba(242, 169, 140, 0.55);
+  border-radius: 12px;
+}

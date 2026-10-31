@@ -1,0 +1,15 @@
+# cache e residui
+*.bak
+*.save
+*~
+.DS_Store
+rice-backup-*
+*.log
+__pycache__/
+
+# segreti (non devono mai finire nel repo)
+.env
+.env.*
+*.key
+*.pem
+secrets*

@@ -1,0 +1,120 @@
+* {
+    font: "CaskaydiaCove Nerd Font 11";
+    background: #161014A6;
+    background-alt: #2A2028CC;
+    foreground: #F2EDE4;
+    muted: #B9A49D;
+    accent: #F2A98C;
+    accent-soft: #4F333BCC;
+    border: #F2A98C99;
+    urgent: #7D89A6;
+
+    selected-normal-background: @accent-soft;
+    selected-normal-foreground: @foreground;
+    selected-active-background: @accent-soft;
+    selected-active-foreground: @foreground;
+    selected-urgent-background: @accent-soft;
+    selected-urgent-foreground: @foreground;
+    urgent-foreground: @foreground;
+}
+
+window {
+    width: 480px;
+    border: 2px;
+    border-color: @border;
+    border-radius: 20px;
+    background-color: @background;
+    padding: 18px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 14px;
+    background-color: transparent;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @background-alt;
+    border: 1px;
+    border-color: #FFFFFF18;
+    border-radius: 14px;
+    padding: 12px 14px;
+    spacing: 10px;
+}
+
+prompt {
+    text-color: @accent;
+    background-color: transparent;
+}
+
+entry {
+    text-color: @foreground;
+    placeholder-color: @muted;
+    background-color: transparent;
+    cursor: text;
+}
+
+listview {
+    columns: 1;
+    lines: 4;
+    spacing: 6px;
+    scrollbar: false;
+    dynamic: true;
+    fixed-height: false;
+    background-color: transparent;
+}
+
+element {
+    orientation: horizontal;
+    padding: 10px 12px;
+    border: 1px;
+    border-color: transparent;
+    border-radius: 13px;
+    spacing: 12px;
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element selected.normal {
+    background-color: @accent-soft;
+    text-color: @foreground;
+    border: 1px;
+    border-color: #F2A98C70;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+    background-color: transparent;
+}
+
+element-icon {
+    size: 30px;
+    background-color: transparent;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element selected.normal {
+    background-color: @accent-soft;
+    text-color: @foreground;
+}
