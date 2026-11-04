@@ -73,8 +73,8 @@ Se lo usi, adatta i colori a quelli della palette qui sopra.
 | `SUPER + F` | fullscreen |
 | `SUPER + B` | screenshot regione |
 | `SUPER + P` / `SUPER + J` | pseudo-tile / togglesplit |
-| `SUPER + 1..0` | workspace |
-| `SUPER + SHIFT + 1..0` | sposta finestra su workspace |
+| `SUPER + 1..8` | workspace (6-8 compaiono al primo uso) |
+| `SUPER + SHIFT + 1..8` | sposta finestra su workspace |
 | `SUPER + S` | scratchpad |
 | `SUPER + frecce` | focus |
 | `SUPER + CTRL + frecce` | resize |

@@ -284,13 +284,23 @@ hl.bind(mainMod .. " + CTRL + down",  hl.dsp.window.resize({ x = 0, y = 20, rela
 hl.bind(mainMod .. " + TAB",         hl.dsp.window.cycle_next({ next = true }),  { repeating = true })
 hl.bind(mainMod .. " + SHIFT + TAB", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
 
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
-for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
+-- Switch workspaces with mainMod + [1-8]
+-- Move active window to a workspace with mainMod + SHIFT + [1-8]
+for i = 1, 8 do
+    local key = i
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
+
+-- I workspace 6-8 compaiono la prima volta che li usi e restano (persistenti),
+-- così la casella attiva sta sempre nella posizione del suo numero.
+-- Quelli mai usati non vengono mostrati.
+hl.on("workspace.created", function(ws)
+    local id = tonumber(ws.id)
+    if id and id >= 6 and id <= 8 then
+        hl.workspace_rule({ workspace = tostring(id), persistent = true })
+    end
+end)
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
