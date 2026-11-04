@@ -292,15 +292,6 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
--- I workspace 6-10 diventano persistenti al primo utilizzo: Waybar li mostra
--- man mano che ci vai, non tutti dall'inizio.
-hl.on("workspace.created", function(ws)
-    local id = tonumber(ws.id)
-    if id and id >= 6 and id <= 10 then
-        hl.workspace_rule({ workspace = tostring(id), persistent = true })
-    end
-end)
-
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
