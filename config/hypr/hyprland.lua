@@ -292,16 +292,6 @@ for i = 1, 8 do
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
--- I workspace 6-8 compaiono la prima volta che li usi e restano (persistenti),
--- così la casella attiva sta sempre nella posizione del suo numero.
--- Quelli mai usati non vengono mostrati.
-hl.on("workspace.created", function(ws)
-    local id = tonumber(ws.id)
-    if id and id >= 6 and id <= 8 then
-        hl.workspace_rule({ workspace = tostring(id), persistent = true })
-    end
-end)
-
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
