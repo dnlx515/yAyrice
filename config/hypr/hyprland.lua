@@ -21,8 +21,8 @@
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
--- Il monitor viene rilevato automaticamente (risoluzione e refresh preferiti).
--- Se vuoi forzare un monitor, scommenta e adatta:
+-- Monitors are auto-detected (preferred resolution and refresh rate).
+-- To force a monitor, uncomment and adapt:
 -- hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@144", position = "auto", scale = "auto" })
 
 
@@ -366,8 +366,8 @@ hl.window_rule({
 -- })
 -- overlayLayerRule:set_enabled(false)
 
--- Blur behind bar and launcher (ignore_alpha: non sfocare i pixel trasparenti,
--- così il blur segue gli angoli arrotondati invece di restare un rettangolo)
+-- Blur behind bar and launcher (ignore_alpha: skip transparent pixels so the
+-- blur follows the rounded corners instead of staying a rectangle)
 hl.layer_rule({ name = "blur-waybar", match = { namespace = "^waybar$" }, blur = true, ignore_alpha = 0.2 })
 hl.layer_rule({ name = "blur-rofi",   match = { namespace = "^rofi$" },   blur = true, ignore_alpha = 0.2 })
 

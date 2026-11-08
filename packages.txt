@@ -1,4 +1,4 @@
-# Pacchetti ufficiali (repo Arch). Installali con:
+# Official Arch repositories. Install with:
 #   sudo pacman -S --needed $(grep -vE '^\s*(#|$)' packages.txt)
 hyprland
 waybar

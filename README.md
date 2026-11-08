@@ -1,37 +1,36 @@
-# sunset rice
+# yAyrice (completely random name)
 
-Config Hyprland personale: barra Waybar, launcher Rofi, kitty, GTK e zsh.
-Palette unica ricavata da un tramonto, con blur e angoli arrotondati su barra e launcher.
+Just my simple hyprland rice, nothing special, I got inspirated by the wallpaper.
 
 ## Palette
 
-| Ruolo        | Hex       |
+| Role         | Hex       |
 |--------------|-----------|
 | base         | `#161014` |
-| superfici    | `#2A2028` |
-| testo        | `#F2EDE4` |
-| accento      | `#F2A98C` |
+| surface      | `#2A2028` |
+| text         | `#F2EDE4` |
+| accent       | `#F2A98C` |
 | muted        | `#B9A49D` |
-| linea        | `#4C4E61` |
-| blu-grigio   | `#7D89A6` |
+| line         | `#4C4E61` |
+| blue-grey    | `#7D89A6` |
 
-Font: **CaskaydiaCove Nerd Font** (pacchetto `ttf-cascadia-code-nerd`).
+Font: **CaskaydiaCove Nerd Font** (`ttf-cascadia-code-nerd`).
 
-## Contenuto
+## Contents
 
 ```
-config/hypr/hyprland.lua     Hyprland (parser Lua)
-config/waybar/               barra
+config/hypr/hyprland.lua     Hyprland (Lua config)
+config/waybar/               status bar
 config/rofi/                 launcher + power menu
-config/kitty/                terminale
-config/gtk-3.0, gtk-4.0/     tema GTK
+config/kitty/                terminal
+config/gtk-3.0, gtk-4.0/     GTK theme
 home/.zshrc                  shell
-wallpapers/sunset.png        sfondo
+wallpapers/sunset.png        wallpaper
 install.sh                   installer
-packages.txt                 pacchetti Arch
+packages.txt                 Arch packages
 ```
 
-## Installazione
+## Installation
 
 ```bash
 git clone git@github.com:dnlx515/dotfiles.git
@@ -39,63 +38,44 @@ cd dotfiles
 ./install.sh
 ```
 
-Lo script:
+What the script does:
 
-1. chiede quali componenti installare (se hai `gum`, con menu a frecce);
-2. fa un backup di quello che trova in `~/.config-backup-<data>`;
-3. crea i **symlink** da `~/.config/<componente>/...` ai file del repo
-   (così modificando il repo cambia subito anche il sistema);
-4. copia la wallpaper in `~/Pictures/wallpapers/sunset.png` se non c'è;
-5. con `--with-packages` installa anche `packages.txt` via pacman.
+1. asks which components to install (arrow-key menu if `gum` is available);
+2. backs up whatever it finds into `~/.config-backup-<date>`;
+3. creates **symlinks** from `~/.config/<component>/...` to the repo files,
+   so editing the repo immediately changes the live system;
+4. copies the wallpaper to `~/Pictures/wallpapers/sunset.png` if missing;
+5. with `--with-packages`, installs `packages.txt` through pacman.
 
-Opzioni: `--yes` (nessuna domanda), `--with-packages`, `--help`.
+Options: `--yes` (no questions), `--with-packages`, `--help`.
 
-## Dipendenze extra (AUR)
+## Extra dependencies (AUR)
 
 ```bash
-paru -S adw-gtk3          # tema GTK usato in gtk-*/settings.ini
-paru -S hyprshutdown      # opzionale, usato da SUPER+M (c'è fallback)
+paru -S adw-gtk3          # GTK theme used in gtk-*/settings.ini
+paru -S hyprshutdown      # optional, used by SUPER+M (fallback exists)
 ```
 
-Il tema SDDM `simple_sddm_2` non è incluso: vive in `/usr/share` e richiede `sudo`.
-Se lo usi, adatta i colori a quelli della palette qui sopra.
+The `simple_sddm_2` SDDM theme is not included: it lives in `/usr/share` and
+needs `sudo`. If you use it, match its colors to the palette above.
 
-## Keybind principali
+## Key bindings
 
-| Tasto | Azione |
+| Key | Action |
 |---|---|
 | `SUPER + Q` | kitty |
 | `SUPER + E` | nemo |
-| `SUPER + R` / `SUPER + W` | rofi (app) |
+| `SUPER + R` / `SUPER + W` | rofi (apps) |
 | `SUPER + X` | power menu |
-| `SUPER + C` / `SUPER + A` | chiudi finestra |
-| `SUPER + T` | floating toggle |
+| `SUPER + C` / `SUPER + A` | close window |
+| `SUPER + T` | toggle floating |
 | `SUPER + F` | fullscreen |
-| `SUPER + B` | screenshot regione |
+| `SUPER + B` | screenshot region |
 | `SUPER + P` / `SUPER + J` | pseudo-tile / togglesplit |
-| `SUPER + 1..8` | workspace (6-8 compaiono quando usati, vuoti spariscono) |
-| `SUPER + SHIFT + 1..8` | sposta finestra su workspace |
+| `SUPER + 1..8` | workspace (6-8 appear when used, vanish when empty) |
+| `SUPER + SHIFT + 1..8` | move window to workspace |
 | `SUPER + S` | scratchpad |
-| `SUPER + frecce` | focus |
-| `SUPER + CTRL + frecce` | resize |
-| `SUPER + LMB / RMB` | drag / resize finestra |
-| `SUPER + rotella` | workspace avanti/indietro |
-
-Tasti multimediali (volume, luminosità, playerctl) già mappati.
-
-## Note personali da adattare
-
-- **Layout tastiera**: `us` + `altgr-intl`, con `lv3:caps_switch_capslock_with_ctrl`
-  (Caps Lock come AltGr, così gli accenti si fanno con AltGr+lettera).
-  Se non ti serve, `input.kb_variant`/`kb_options` sono in `config/hypr/hyprland.lua`.
-- **Monitor**: rilevato automaticamente. Per forzare risoluzione/refresh c'è la riga
-  commentata nella sezione `MONITORS`.
-- **Wallpaper**: lo script copia `sunset.png` in `~/Pictures/wallpapers/`.
-- **Geometry Dash**: c'è una `window_rule` che mette fullscreen la classe
-  `steam_app_322170`; toglila se non ti serve.
-- **Power menu**: la voce *Lock* usa `loginctl lock-session` e richiede un locker
-  (es. `hyprlock`).
-
-## Crediti
-
-Base di partenza dalla documentazione Hyprland (config di esempio), poi modificata.
+| `SUPER + arrows` | focus |
+| `SUPER + CTRL + arrows` | resize |
+| `SUPER + LMB / RMB` | drag / resize window |
+| `SUPER + scroll` | previous/next workspace |

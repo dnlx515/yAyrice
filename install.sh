@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # =============================================================
-#  dotfiles — rice Hyprland "sunset"
-#  Uso: ./install.sh [--yes] [--with-packages]
-#    --yes            non chiede niente (tutti i componenti)
-#    --with-packages  installa anche i pacchetti di packages.txt
+#  dotfiles — Hyprland "sunset" rice
+#  Usage: ./install.sh [--yes] [--with-packages]
+#    --yes            non-interactive (all components)
+#    --with-packages  also install the packages listed in packages.txt
 # =============================================================
 set -euo pipefail
 
@@ -18,7 +18,7 @@ for arg in "$@"; do
         -y|--yes)        ASSUME_YES=1 ;;
         --with-packages) WITH_PACKAGES=1 ;;
         -h|--help)       sed -n '2,7p' "$0"; exit 0 ;;
-        *)               echo "Opzione sconosciuta: $arg"; exit 1 ;;
+        *)               echo "Unknown option: $arg"; exit 1 ;;
     esac
 done
 
@@ -30,39 +30,39 @@ ask() {
         return 0
     fi
     local a
-    read -r -p "$1 [S/n] " a
-    if [ -z "$a" ] || [[ "$a" =~ ^[sSyY] ]]; then
+    read -r -p "$1 [Y/n] " a
+    if [ -z "$a" ] || [[ "$a" =~ ^[yYsS] ]]; then
         return 0
     fi
     return 1
 }
 
 if [ "$HOME" = "/" ]; then
-    warn "HOME non valida: non eseguo."
+    warn "Invalid HOME: aborting."
     exit 1
 fi
 if [ ! -f "$ROOT/config/hypr/hyprland.lua" ]; then
-    warn "Esegui lo script dalla cartella del repo (manca config/hypr/hyprland.lua)."
+    warn "Run this script from the repository root (missing config/hypr/hyprland.lua)."
     exit 1
 fi
 
-# --- scelta componenti ---
+# --- component selection ---
 SELECTED=()
 if [ "$ASSUME_YES" = 0 ] && command -v gum >/dev/null 2>&1; then
     mapfile -t SELECTED < <(printf '%s\n' "${COMPONENTS[@]}" | gum choose --no-limit \
-        --header "Componenti da installare (spazio = seleziona, invio = conferma)")
+        --header "Components to install (space = select, enter = confirm)")
 else
-    if ask "Installare tutti i componenti (hypr, waybar, rofi, kitty, gtk)?"; then
+    if ask "Install all components (hypr, waybar, rofi, kitty, gtk)?"; then
         SELECTED=("${COMPONENTS[@]}")
     fi
 fi
 
 if [ ${#SELECTED[@]} -eq 0 ]; then
-    warn "Nessun componente selezionato, esco."
+    warn "No component selected, exiting."
     exit 0
 fi
 
-# --- backup + symlink ---
+# --- backup + symlinks ---
 link_file() {
     local src="$1" dst="$2"
     if [ -e "$dst" ] || [ -L "$dst" ]; then
@@ -76,7 +76,7 @@ link_file() {
 for c in "${SELECTED[@]}"; do
     src="$ROOT/config/$c"
     if [ ! -d "$src" ]; then
-        warn "Componente non trovato: $c"
+        warn "Component not found: $c"
         continue
     fi
     say "→ $c"
@@ -95,12 +95,12 @@ if [ -f "$ROOT/wallpapers/sunset.png" ]; then
     mkdir -p "$HOME/Pictures/wallpapers"
     if [ ! -f "$HOME/Pictures/wallpapers/sunset.png" ]; then
         cp "$ROOT/wallpapers/sunset.png" "$HOME/Pictures/wallpapers/sunset.png"
-        say "→ wallpaper in ~/Pictures/wallpapers/sunset.png"
+        say "→ wallpaper copied to ~/Pictures/wallpapers/sunset.png"
     fi
 fi
 
-# --- pacchetti ---
-if [ "$WITH_PACKAGES" = 1 ] || { [ "$ASSUME_YES" = 0 ] && ask "Installo i pacchetti da packages.txt?"; }; then
+# --- packages ---
+if [ "$WITH_PACKAGES" = 1 ] || { [ "$ASSUME_YES" = 0 ] && ask "Install packages from packages.txt?"; }; then
     mapfile -t PKGS < <(grep -vE '^[[:space:]]*(#|$)' "$ROOT/packages.txt")
     if [ ${#PKGS[@]} -gt 0 ]; then
         say "→ sudo pacman -S --needed ${PKGS[*]}"
@@ -108,6 +108,6 @@ if [ "$WITH_PACKAGES" = 1 ] || { [ "$ASSUME_YES" = 0 ] && ask "Installo i pacche
     fi
 fi
 
-say "Fatto."
-say "Backup dei file sostituiti: $BACKUP"
-say "Riapri la sessione (logout/login) oppure: hyprctl reload"
+say "Done."
+say "Backup of replaced files: $BACKUP"
+say "Log out and back in, or run: hyprctl reload"

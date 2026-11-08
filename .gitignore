@@ -1,4 +1,4 @@
-# cache e residui
+# cache and leftovers
 *.bak
 *.save
 *~
@@ -7,7 +7,7 @@ rice-backup-*
 *.log
 __pycache__/
 
-# segreti (non devono mai finire nel repo)
+# secrets (must never end up in the repo)
 .env
 .env.*
 *.key
