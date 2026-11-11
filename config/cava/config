@@ -1,0 +1,28 @@
+[general]
+bars = 0
+bar_width = 1
+bar_spacing = 1
+sleep_timer = 3
+
+[input]
+method = pipewire
+source = auto
+
+[output]
+method = noncurses
+orientation = bottom
+channels = mono
+mono_option = average
+
+[color]
+gradient = 1
+gradient_count = 4
+gradient_color_1 = '#404178'
+gradient_color_2 = '#c1c1ff'
+gradient_color_3 = '#e9b9d3'
+gradient_color_4 = '#5f3c51'
+
+[smoothing]
+monstercat = 1
+noise_reduction = 60
+gravity = 100

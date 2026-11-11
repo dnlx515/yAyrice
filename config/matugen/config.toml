@@ -22,3 +22,7 @@ output_path = '~/.config/rofi/power-menu.rasi'
 input_path = '~/.config/matugen/templates/swaync-style.css'
 output_path = '~/.config/swaync/style.css'
 post_hook = 'swaync-client -rs'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava.conf'
+output_path = '~/.config/cava/config'
