@@ -25,11 +25,12 @@ Font: **CaskaydiaCove Nerd Font** (`ttf-cascadia-code-nerd`).
 ```
 config/hypr/hyprland.lua     Hyprland (Lua config)
 config/hypr/scripts/          wallpaper picker
-config/waybar/               status bar
+config/waybar/               status bar (+ cava visualizer)
 config/rofi/                 launcher + power menu
 config/kitty/                terminal
 config/gtk-3.0, gtk-4.0/     GTK theme
 config/matugen/              dynamic color templates
+config/swaync/               notifications
 home/.zshrc                  shell
 wallpapers/sunset.png        wallpaper
 install.sh                   installer
@@ -40,7 +41,8 @@ packages.txt                 Arch packages
 
 `SUPER + SHIFT + W` opens a rofi grid of the images in `~/Downloads/waypepah`
 (override with `WALL_DIR`). Picking one runs `awww img` and then `matugen`, so
-the bar, the launcher and the window borders follow the new wallpaper.
+the bar, the launcher, the notifications and the window borders follow the new
+wallpaper.
 
 The script also works from a shell:
 
@@ -49,6 +51,12 @@ wallpaper-select.sh --apply ~/Downloads/waypepah/foo.png
 wallpaper-select.sh --refresh     # rebuild thumbnails only
 wallpaper-select.sh --current     # print the active wallpaper
 ```
+
+## Notifications
+
+`swaync` is the notification daemon, themed by `matugen` through
+`config/matugen/templates/swaync-style.css`. `swaync-client -t` opens the
+control center, `swaync-client -d` toggles do-not-disturb.
 
 ## Installation
 
@@ -74,6 +82,7 @@ Options: `--yes` (no questions), `--with-packages`, `--help`.
 ```bash
 paru -S adw-gtk3          # GTK theme used in gtk-*/settings.ini
 paru -S hyprshutdown      # optional, used by SUPER+M (fallback exists)
+paru -S waybar-cava       # waybar with the cava module (styling is ready)
 ```
 
 The `simple_sddm_2` SDDM theme is not included: it lives in `/usr/share` and

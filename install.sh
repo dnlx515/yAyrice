@@ -8,7 +8,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-COMPONENTS=(hypr waybar rofi kitty gtk-3.0 gtk-4.0 matugen)
+COMPONENTS=(hypr waybar rofi kitty gtk-3.0 gtk-4.0 matugen swaync)
 BACKUP="$HOME/.config-backup-$(date +%Y%m%d-%H%M%S)"
 ASSUME_YES=0
 WITH_PACKAGES=0

@@ -1,0 +1,96 @@
+* {
+  font-family: "CaskaydiaCove Nerd Font", "Noto Sans", sans-serif;
+  font-size: 13px;
+}
+
+.notification-row {
+  outline: none;
+  margin: 6px 10px;
+}
+
+.notification-background {
+  background: transparent;
+}
+
+.notification {
+  background: rgba(19, 19, 24, 0.94);
+  border: 1px solid rgba(193, 193, 255, 0.40);
+  border-radius: 16px;
+  color: #e4e1e9;
+  padding: 12px 14px;
+}
+
+.notification-content {
+  padding: 2px;
+}
+
+.summary {
+  color: #c1c1ff;
+  font-weight: 700;
+}
+
+.body,
+.notification-body {
+  color: #e4e1e9;
+}
+
+.time,
+.app-name {
+  color: #c8c5d0;
+}
+
+.close-button {
+  background: rgba(193, 193, 255, 0.16);
+  color: #c1c1ff;
+  border-radius: 10px;
+  padding: 4px 6px;
+}
+
+.close-button:hover {
+  background: rgba(193, 193, 255, 0.32);
+}
+
+.control-center {
+  background: rgba(19, 19, 24, 0.96);
+  border: 1px solid rgba(193, 193, 255, 0.35);
+  border-radius: 18px;
+  color: #e4e1e9;
+  padding: 14px;
+}
+
+.control-center .widget-title {
+  color: #c1c1ff;
+  font-weight: 700;
+}
+
+.widget-title > button {
+  background: rgba(193, 193, 255, 0.16);
+  color: #c1c1ff;
+  border-radius: 10px;
+  border: none;
+}
+
+.widget-dnd,
+.widget-volume,
+.widget-backlight,
+.widget-mpris {
+  color: #e4e1e9;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: rgba(193, 193, 255, 0.14);
+  color: #e4e1e9;
+  border-radius: 12px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: rgba(193, 193, 255, 0.30);
+}
+
+.notification-default-action {
+  border-radius: 16px;
+}
+
+.notification-default-action:hover {
+  background: rgba(193, 193, 255, 0.10);
+}

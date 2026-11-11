@@ -17,3 +17,8 @@ output_path = '~/.config/rofi/config.rasi'
 [templates.rofi-power-menu]
 input_path = '~/.config/matugen/templates/power-menu.rasi'
 output_path = '~/.config/rofi/power-menu.rasi'
+
+[templates.swaync]
+input_path = '~/.config/matugen/templates/swaync-style.css'
+output_path = '~/.config/swaync/style.css'
+post_hook = 'swaync-client -rs'
