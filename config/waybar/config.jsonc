@@ -9,7 +9,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["cava", "tray", "pulseaudio", "cpu", "memory", "clock"],
+  "modules-right": ["tray", "pulseaudio", "cpu", "memory", "clock"],
 
   "hyprland/workspaces": {
     "persistent-workspaces": {
@@ -29,22 +29,6 @@
     "max-length": 45
   },
 
-  "cava": {
-    "framerate": 30,
-    "autosens": 0,
-    "sensitivity": 100,
-    "bars": 6,
-    "lower_cutoff_freq": 50,
-    "higher_cutoff_freq": 10000,
-    "input_delay": 2,
-    "sleep_timer": 1,
-    "stereo": false,
-    "noise_reduction": 0.3,
-    "hide_on_silence": true,
-    "format": "{}",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "tooltip": false
-  },
 
   "tray": {
     "icon-size": 17,

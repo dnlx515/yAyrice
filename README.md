@@ -25,7 +25,7 @@ Font: **CaskaydiaCove Nerd Font** (`ttf-cascadia-code-nerd`).
 ```
 config/hypr/hyprland.lua     Hyprland (Lua config)
 config/hypr/scripts/          wallpaper picker
-config/waybar/               status bar (+ cava visualizer)
+config/waybar/               status bar
 config/rofi/                 launcher + power menu
 config/kitty/                terminal
 config/gtk-3.0, gtk-4.0/     GTK theme
@@ -82,7 +82,6 @@ Options: `--yes` (no questions), `--with-packages`, `--help`.
 ```bash
 paru -S adw-gtk3          # GTK theme used in gtk-*/settings.ini
 paru -S hyprshutdown      # optional, used by SUPER+M (fallback exists)
-paru -S waybar-cava       # waybar with the cava module (bar height 40 required)
 ```
 
 The `simple_sddm_2` SDDM theme is not included: it lives in `/usr/share` and

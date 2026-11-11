@@ -18,7 +18,6 @@ window#waybar {
 #pulseaudio,
 #cpu,
 #memory,
-#cava,
 #clock {
   margin: 4px 3px;
   padding: 3px 10px;
@@ -63,11 +62,6 @@ window#waybar {
 
 #clock {
   color: {{colors.primary.default.hex}};
-}
-
-#cava {
-  color: {{colors.primary.default.hex}};
-  padding: 0 8px;
 }
 
 tooltip {
