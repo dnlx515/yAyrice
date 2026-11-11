@@ -90,8 +90,12 @@ paru -S adw-gtk3          # GTK theme used in gtk-*/settings.ini
 paru -S hyprshutdown      # optional, used by SUPER+M (fallback exists)
 ```
 
-The `simple_sddm_2` SDDM theme is not included: it lives in `/usr/share` and
-needs `sudo`. If you use it, match its colors to the palette above.
+The `simple_sddm_2` SDDM theme is not included: it lives in `/usr/share`.
+If you have it, `config/matugen/templates/sddm-theme.conf` rewrites its
+`theme.conf` (same palette) and the wallpaper picker drops the current
+wallpaper into the theme as `current.png`, so the login screen follows too.
+That needs write access to `/usr/share/sddm/themes/simple_sddm_2`; if it is
+root-owned, run the install step with `sudo`.
 
 ## Key bindings
 

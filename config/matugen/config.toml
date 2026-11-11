@@ -30,3 +30,8 @@ output_path = '~/.config/cava/config'
 [templates.zsh]
 input_path = '~/.config/matugen/templates/zsh-colors.zsh'
 output_path = '~/.cache/matugen/zsh-colors.zsh'
+
+[templates.sddm]
+input_path = '~/.config/matugen/templates/sddm-theme.conf'
+output_path = '~/.cache/matugen/sddm-theme.conf'
+post_hook = 'install -m 644 ~/.cache/matugen/sddm-theme.conf /usr/share/sddm/themes/simple_sddm_2/theme.conf'

@@ -53,6 +53,13 @@ apply() {
         "$HOME/.cargo/bin/matugen" image "$file" --mode dark --prefer saturation --quiet || true
     fi
     printf '%s\n' "$file" > "$STATE_FILE"
+    sddm_dir="/usr/share/sddm/themes/simple_sddm_2"
+    if [ -d "$sddm_dir" ] && [ -w "$sddm_dir" ]; then
+        res="$(hyprctl monitors -j 2>/dev/null | python3 -c 'import json,sys; m=json.load(sys.stdin)[0]; print(str(m["width"]) + "x" + str(m["height"]))' 2>/dev/null)"
+        [ -n "$res" ] || res="1920x1080"
+        magick "$file" -auto-orient -resize "${res}^" -gravity center -extent "$res" \
+            "$sddm_dir/current.png" 2>/dev/null || true
+    fi
 }
 
 pick() {
