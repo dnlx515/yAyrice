@@ -1,0 +1,40 @@
+@define-color accent_color #c1c1ff;
+@define-color accent_bg_color #c1c1ff;
+@define-color accent_fg_color #292a60;
+
+@define-color window_bg_color #131318;
+@define-color window_fg_color #e4e1e9;
+@define-color view_bg_color #1f1f25;
+@define-color view_fg_color #e4e1e9;
+@define-color headerbar_bg_color #1f1f25;
+@define-color headerbar_fg_color #e4e1e9;
+@define-color headerbar_border_color alpha(#918f9a, 0.35);
+@define-color headerbar_backdrop_color #131318;
+@define-color popover_bg_color #1f1f25;
+@define-color popover_fg_color #e4e1e9;
+@define-color card_bg_color #1f1f25;
+@define-color card_fg_color #e4e1e9;
+@define-color dialog_bg_color #1f1f25;
+@define-color dialog_fg_color #e4e1e9;
+
+@define-color sidebar_bg_color @window_bg_color;
+@define-color sidebar_fg_color @window_fg_color;
+@define-color sidebar_border_color alpha(#918f9a, 0.35);
+
+@define-color theme_selected_bg_color alpha(@accent_color, 0.25);
+@define-color theme_selected_fg_color @accent_fg_color;
+@define-color destructive_bg_color #ffb4ab;
+@define-color destructive_fg_color #690005;
+@define-color borders alpha(#918f9a, 0.35);
+
+scale > trough > highlight,
+scale highlight,
+progressbar > trough > progress,
+tab:checked,
+check:checked,
+radio:checked,
+switch:checked,
+button.suggested-action {
+  background-color: #c1c1ff;
+  color: #292a60;
+}
