@@ -52,6 +52,7 @@ local menu        = "rofi -show drun -theme ~/.config/rofi/config.rasi"
 hl.on("hyprland.start", function ()
     hl.exec_cmd("waybar &")
     hl.exec_cmd("awww-daemon &")
+    hl.exec_cmd("wl-paste --type text --watch cliphist store &")
     hl.exec_cmd("sleep 1 && awww img /home/daniele/Pictures/wallpapers/sunset.png")
 end)
 
@@ -268,6 +269,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-select.sh"))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/clipboard.sh"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 

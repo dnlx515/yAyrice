@@ -24,7 +24,7 @@ Font: **CaskaydiaCove Nerd Font** (`ttf-cascadia-code-nerd`).
 
 ```
 config/hypr/hyprland.lua     Hyprland (Lua config)
-config/hypr/scripts/          wallpaper picker
+config/hypr/scripts/          wallpaper picker, clipboard history
 config/waybar/               status bar
 config/rofi/                 launcher + power menu
 config/kitty/                terminal
@@ -105,6 +105,7 @@ root-owned, run the install step with `sudo`.
 | `SUPER + E` | nemo |
 | `SUPER + R` / `SUPER + W` | rofi (apps) |
 | `SUPER + SHIFT + W` | wallpaper picker |
+| `SUPER + SHIFT + V` | clipboard history |
 | `SUPER + X` | power menu |
 | `SUPER + C` / `SUPER + A` | close window |
 | `SUPER + T` | toggle floating |
