@@ -4,6 +4,10 @@ Just my simple hyprland rice, nothing special, I got inspirated by the wallpaper
 
 ## Palette
 
+The colors below are the reference palette this rice was designed around. They
+are also the fallback: `waybar`, `rofi` and the Hyprland borders are generated
+from the current wallpaper by `matugen` (templates in `config/matugen/`).
+
 | Role         | Hex       |
 |--------------|-----------|
 | base         | `#161014` |
@@ -20,14 +24,30 @@ Font: **CaskaydiaCove Nerd Font** (`ttf-cascadia-code-nerd`).
 
 ```
 config/hypr/hyprland.lua     Hyprland (Lua config)
+config/hypr/scripts/          wallpaper picker
 config/waybar/               status bar
 config/rofi/                 launcher + power menu
 config/kitty/                terminal
 config/gtk-3.0, gtk-4.0/     GTK theme
+config/matugen/              dynamic color templates
 home/.zshrc                  shell
 wallpapers/sunset.png        wallpaper
 install.sh                   installer
 packages.txt                 Arch packages
+```
+
+## Wallpapers
+
+`SUPER + SHIFT + W` opens a rofi grid of the images in `~/Downloads/waypepah`
+(override with `WALL_DIR`). Picking one runs `awww img` and then `matugen`, so
+the bar, the launcher and the window borders follow the new wallpaper.
+
+The script also works from a shell:
+
+```bash
+wallpaper-select.sh --apply ~/Downloads/waypepah/foo.png
+wallpaper-select.sh --refresh     # rebuild thumbnails only
+wallpaper-select.sh --current     # print the active wallpaper
 ```
 
 ## Installation
@@ -66,6 +86,7 @@ needs `sudo`. If you use it, match its colors to the palette above.
 | `SUPER + Q` | kitty |
 | `SUPER + E` | nemo |
 | `SUPER + R` / `SUPER + W` | rofi (apps) |
+| `SUPER + SHIFT + W` | wallpaper picker |
 | `SUPER + X` | power menu |
 | `SUPER + C` / `SUPER + A` | close window |
 | `SUPER + T` | toggle floating |

@@ -9,14 +9,14 @@ configuration {
 }
 
 * {
-    background: #161014A6;
-    background-alt: #2A2028CC;
-    foreground: #F2EDE4;
-    muted: #B9A49D;
-    accent: #F2A98C;
-    accent-soft: #4F333BCC;
-    border: #F2A98C99;
-    urgent: #7D89A6;
+    background: #131318A6;
+    background-alt: #1f1f25CC;
+    foreground: #e4e1e9;
+    muted: #c8c5d0;
+    accent: #c1c1ff;
+    accent-soft: #404178CC;
+    border: #c1c1ff99;
+    urgent: #918f9a;
 
     selected-normal-background: @accent-soft;
     selected-normal-foreground: @foreground;
@@ -104,7 +104,7 @@ element selected {
     text-color: @foreground;
     background-color: @accent-soft;
     border: 1px;
-    border-color: #F2A98C70;
+    border-color: #c1c1ff70;
 }
 
 element-text {

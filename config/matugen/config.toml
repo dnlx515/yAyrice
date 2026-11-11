@@ -1,0 +1,19 @@
+[config]
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar.css'
+output_path = '~/.config/waybar/style.css'
+post_hook = 'pkill -SIGUSR2 -x waybar'
+
+[templates.hypr-colors]
+input_path = '~/.config/matugen/templates/hypr-colors.lua'
+output_path = '~/.cache/matugen/colors.lua'
+post_hook = 'hyprctl reload'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/config.rasi'
+output_path = '~/.config/rofi/config.rasi'
+
+[templates.rofi-power-menu]
+input_path = '~/.config/matugen/templates/power-menu.rasi'
+output_path = '~/.config/rofi/power-menu.rasi'

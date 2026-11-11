@@ -5,6 +5,7 @@ waybar
 rofi
 kitty
 awww
+matugen
 grim
 slurp
 hyprshot

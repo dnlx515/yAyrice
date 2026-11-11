@@ -21,9 +21,12 @@
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
--- Monitors are auto-detected (preferred resolution and refresh rate).
--- To force a monitor, uncomment and adapt:
--- hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@144", position = "auto", scale = "auto" })
+hl.monitor({
+    output   = "HDMI-A-1",
+    mode     = "1920x1080@144",
+    position = "auto",
+    scale    = "auto",
+})
 
 
 ---------------------
@@ -31,10 +34,9 @@
 ---------------------
 
 -- Set programs that you use
-local home        = os.getenv("HOME")
 local terminal    = "kitty"
 local fileManager = "nemo"
-local menu        = "rofi -show drun -theme " .. home .. "/.config/rofi/config.rasi"
+local menu        = "rofi -show drun -theme ~/.config/rofi/config.rasi"
 
 
 -------------------
@@ -50,7 +52,7 @@ local menu        = "rofi -show drun -theme " .. home .. "/.config/rofi/config.r
 hl.on("hyprland.start", function ()
     hl.exec_cmd("waybar &")
     hl.exec_cmd("awww-daemon &")
-    hl.exec_cmd("sleep 1 && awww img " .. home .. "/Pictures/wallpapers/sunset.png")
+    hl.exec_cmd("sleep 1 && awww img /home/daniele/Pictures/wallpapers/sunset.png")
 end)
 
 -------------------------------
@@ -265,6 +267,7 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-select.sh"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
@@ -366,8 +369,8 @@ hl.window_rule({
 -- })
 -- overlayLayerRule:set_enabled(false)
 
--- Blur behind bar and launcher (ignore_alpha: skip transparent pixels so the
--- blur follows the rounded corners instead of staying a rectangle)
+-- Blur behind bar and launcher (ignore_alpha: non sfocare i pixel trasparenti,
+-- così il blur segue gli angoli arrotondati invece di restare un rettangolo)
 hl.layer_rule({ name = "blur-waybar", match = { namespace = "^waybar$" }, blur = true, ignore_alpha = 0.2 })
 hl.layer_rule({ name = "blur-rofi",   match = { namespace = "^rofi$" },   blur = true, ignore_alpha = 0.2 })
 
@@ -386,4 +389,12 @@ hl.window_rule({
    hl.bind("SUPER + W", hl.dsp.exec_cmd("rofi -show drun -theme ~/.config/rofi/config.rasi"))
    hl.bind("SUPER + B", hl.dsp.exec_cmd("hyprshot -m region"))
    hl.bind("SUPER + X", hl.dsp.exec_cmd("~/.config/rofi/power-menu.sh"))
+
+local matugenOk, matugenColors = pcall(dofile, (os.getenv("HOME") or "") .. "/.cache/matugen/colors.lua")
+if matugenOk and type(matugenColors) == "table" then
+    hl.config({ general = { col = {
+        active_border   = { colors = { matugenColors.active, matugenColors.active }, angle = 45 },
+        inactive_border = matugenColors.inactive,
+    } } })
+end
 

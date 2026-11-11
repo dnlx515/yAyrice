@@ -5,9 +5,9 @@
 }
 
 window#waybar {
-  background: rgba(22, 16, 20, 0.72);
-  color: #F2EDE4;
-  border: 1px solid rgba(242, 169, 140, 0.45);
+  background: rgba(19, 19, 24, 0.72);
+  color: #e4e1e9;
+  border: 1px solid rgba(193, 193, 255, 0.45);
   border-radius: 16px;
 }
 
@@ -22,12 +22,12 @@ window#waybar {
   margin: 4px 3px;
   padding: 3px 10px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: rgba(228, 225, 233, 0.055);
+  border: 1px solid rgba(228, 225, 233, 0.075);
 }
 
 #workspaces button {
-  color: #7D89A6;
+  color: #918f9a;
   padding: 0;
   margin: 0 5px;
   min-width: 32px;
@@ -41,14 +41,14 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: #161014;
-  background: #F2A98C;
+  color: #292a60;
+  background: #c1c1ff;
   box-shadow: none;
 }
 
 #workspaces button:hover {
-  color: #F2A98C;
-  background: rgba(242, 169, 140, 0.18);
+  color: #c1c1ff;
+  background: rgba(193, 193, 255, 0.18);
   box-shadow: none;
 }
 
@@ -57,16 +57,16 @@ window#waybar {
 }
 
 #window {
-  color: #F2EDE4;
+  color: #e4e1e9;
 }
 
 #clock {
-  color: #F2A98C;
+  color: #c1c1ff;
 }
 
 tooltip {
-  background: rgba(22, 16, 20, 0.96);
-  color: #F2EDE4;
-  border: 1px solid rgba(242, 169, 140, 0.55);
+  background: rgba(19, 19, 24, 0.96);
+  color: #e4e1e9;
+  border: 1px solid rgba(193, 193, 255, 0.55);
   border-radius: 12px;
 }
