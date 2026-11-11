@@ -26,3 +26,7 @@ post_hook = 'swaync-client -rs'
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava.conf'
 output_path = '~/.config/cava/config'
+
+[templates.zsh]
+input_path = '~/.config/matugen/templates/zsh-colors.zsh'
+output_path = '~/.cache/matugen/zsh-colors.zsh'
