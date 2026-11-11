@@ -37,6 +37,7 @@
     "higher_cutoff_freq": 10000,
     "input_delay": 2,
     "sleep_timer": 2,
+    "stereo": false,
     "hide_on_silence": true,
     "format": "{}",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
