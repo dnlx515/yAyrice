@@ -1,7 +1,7 @@
 configuration {
     modi: "drun";
     show-icons: true;
-    display-drun: "Apps";
+    display-drun: "Search";
     drun-display-format: "{name}";
     matching: "fuzzy";
     sort: true;
@@ -59,7 +59,6 @@ prompt {
 
 entry {
     text-color: @foreground;
-    placeholder: "Cerca applicazioni...";
     placeholder-color: @muted;
     background-color: transparent;
     cursor: text;

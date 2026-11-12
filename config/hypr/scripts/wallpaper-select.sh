@@ -98,7 +98,7 @@ pick() {
         for f in "$WALL_DIR"/*; do
             [ -f "$f" ] || continue
             printf '%s\0icon\x1f%s\n' "$(basename "$f")" "$(thumb_for "$f")"
-        done | rofi -dmenu -i -p "Sfondo" -show-icons \
+        done | rofi -dmenu -i -p "Wallpaper" -show-icons \
             -theme "$ROFI_THEME" \
             -theme-str 'window { width: 1220px; } listview { columns: 3; lines: 3; dynamic: true; } element { orientation: vertical; padding: 12px; spacing: 8px; } element-icon { size: 200px; } element-text { horizontal-align: 0.5; font: "CaskaydiaCove Nerd Font 10"; }'
     )" || exit 0
