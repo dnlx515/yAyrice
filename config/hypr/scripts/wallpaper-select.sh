@@ -47,6 +47,17 @@ refresh() {
     done
 }
 
+generate_theme() {
+    local file="$1" bin="$2" sat type
+    sat="$(magick "${file}[0]" -colorspace HSL -channel G -separate +channel -format "%[fx:mean]" info: 2>/dev/null || true)"
+    [ -n "$sat" ] || sat=1
+    type="scheme-tonal-spot"
+    if awk -v s="$sat" 'BEGIN{exit !(s < 0.10)}'; then
+        type="scheme-neutral"
+    fi
+    "$bin" image "$file" --mode dark --prefer saturation --type "$type" --quiet || true
+}
+
 apply() {
     local file="$1" pos
     [ -f "$file" ] || { printf 'no such wallpaper: %s\n' "$file" >&2; exit 1; }
@@ -58,9 +69,9 @@ apply() {
         --transition-duration 1 \
         --transition-fps 60
     if command -v matugen >/dev/null 2>&1; then
-        matugen image "$file" --mode dark --prefer saturation --quiet || true
+        generate_theme "$file" matugen
     elif [ -x "$HOME/.cargo/bin/matugen" ]; then
-        "$HOME/.cargo/bin/matugen" image "$file" --mode dark --prefer saturation --quiet || true
+        generate_theme "$file" "$HOME/.cargo/bin/matugen"
     fi
     printf '%s\n' "$file" > "$STATE_FILE"
     sddm_dir="/usr/share/sddm/themes/simple_sddm_2"
