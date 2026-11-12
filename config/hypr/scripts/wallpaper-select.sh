@@ -62,6 +62,15 @@ apply() {
     fi
 }
 
+restore() {
+    local file
+    file="$(cat "$STATE_FILE" 2>/dev/null || true)"
+    [ -f "${file:-}" ] || file="$HOME/Pictures/wallpapers/sunset.png"
+    [ -f "$file" ] || return 0
+    awww img "$file" --transition-type fade --transition-duration 0
+    printf '%s\n' "$file" > "$STATE_FILE"
+}
+
 pick() {
     local sel
     sel="$(
@@ -79,7 +88,8 @@ pick() {
 case "${1:-}" in
     --refresh) refresh ;;
     --apply) shift; apply "${1:-}" ;;
+    --restore) restore ;;
     --current) cat "$STATE_FILE" 2>/dev/null || true ;;
     "" ) refresh; pick ;;
-    *) printf 'usage: %s [--refresh|--apply FILE|--current]\n' "$(basename "$0")" >&2; exit 1 ;;
+    *) printf 'usage: %s [--refresh|--apply FILE|--restore|--current]\n' "$(basename "$0")" >&2; exit 1 ;;
 esac

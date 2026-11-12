@@ -4,7 +4,7 @@ Just my simple hyprland rice, nothing special.
 
 ## Palette
 
-The palette change based on the wallpaper.
+The palette changes based on the wallpaper.
 
 Font: **CaskaydiaCove Nerd Font** (`ttf-cascadia-code-nerd`).
 

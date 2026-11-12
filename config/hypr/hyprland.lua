@@ -53,7 +53,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("waybar &")
     hl.exec_cmd("awww-daemon &")
     hl.exec_cmd("wl-paste --type text --watch cliphist store &")
-    hl.exec_cmd("sleep 1 && awww img /home/daniele/Pictures/wallpapers/sunset.png")
+    hl.exec_cmd("sleep 1 && ~/.config/hypr/scripts/wallpaper-select.sh --restore")
 end)
 
 -------------------------------
