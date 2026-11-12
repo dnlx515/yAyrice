@@ -2,13 +2,19 @@
 set -euo pipefail
 
 WALL_DIR="${WALL_DIR:-}"
-if [ -z "$WALL_DIR" ]; then
-    if [ -d "$HOME/Downloads/waypepah" ]; then
-        WALL_DIR="$HOME/Downloads/waypepah"
-    else
-        WALL_DIR="$HOME/Pictures/wallpapers"
-    fi
+DIR_CONF="$HOME/.config/wallpaper-select/dir"
+if [ -z "$WALL_DIR" ] && [ -r "$DIR_CONF" ]; then
+    WALL_DIR="$(cat "$DIR_CONF")"
 fi
+if [ -z "$WALL_DIR" ]; then
+    for candidate in "$HOME/wallpapers" "$HOME/waypepah" "$HOME/Pictures/wallpapers"; do
+        if [ -d "$candidate" ]; then
+            WALL_DIR="$candidate"
+            break
+        fi
+    done
+fi
+WALL_DIR="${WALL_DIR:-$HOME/Pictures/wallpapers}"
 CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 CACHE_DIR="$CACHE_HOME/wallpaper-thumbs"
 STATE_DIR="$CACHE_HOME/wallpaper-select"
@@ -29,7 +35,11 @@ refresh() {
         if [ -f "$t" ] && [ "$t" -nt "$f" ]; then
             continue
         fi
-        magick "$f" -auto-orient -resize 640x360^ -gravity center -extent 640x360 "$t" 2>/dev/null || true
+        case "$f" in
+            *.gif|*.GIF) src="$f[0]" ;;
+            *) src="$f" ;;
+        esac
+        magick "$src" -auto-orient -resize 640x360^ -gravity center -extent 640x360 "$t" 2>/dev/null || true
     done
     for t in "$CACHE_DIR"/*.png; do
         [ -e "$t" ] || continue
