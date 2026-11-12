@@ -32,6 +32,16 @@ packages.txt                 Arch packages
 the bar, the launcher, the notifications and the window borders follow the new
 wallpaper.
 
+## Wallpapers
+
+The repository ships only `wallpapers/sunset.png`. Personal wallpapers are not
+part of it and are never committed: put them in `~/wallpapers` (the folder the
+picker reads) or point `~/.config/wallpaper-select/dir` at another directory,
+then reload the picker with `wallpaper-select.sh --refresh`.
+
+Anything dropped into the repo's `wallpapers/` folder is ignored by git except
+`sunset.png`.
+
 ## Notifications
 
 `swaync` is the notification daemon, themed by `matugen` through

@@ -13,3 +13,7 @@ __pycache__/
 *.key
 *.pem
 secrets*
+
+# personal wallpapers: only the default one ships
+wallpapers/*
+!wallpapers/sunset.png
