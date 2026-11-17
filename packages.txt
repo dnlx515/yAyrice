@@ -4,6 +4,7 @@ hyprland
 waybar
 rofi
 kitty
+zsh
 awww
 matugen
 grim

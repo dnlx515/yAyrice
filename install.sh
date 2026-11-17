@@ -22,7 +22,7 @@ for arg in "$@"; do
     esac
 done
 
-say()  { printf '\033[1;38;5;216m%s\033[0m\n' "$*"; }
+say()  { printf '\033[1;38;5;117m%s\033[0m\n' "$*"; }
 warn() { printf '\033[1;31m%s\033[0m\n' "$*"; }
 
 ask() {
@@ -89,6 +89,12 @@ done
 
 say "→ .zshrc"
 link_file "$ROOT/home/.zshrc" "$HOME/.zshrc"
+
+current_shell="$(getent passwd "$USER" | cut -d: -f7)"
+if [ "$(basename "$current_shell")" != "zsh" ]; then
+    say "Default shell is $current_shell, not zsh."
+    say "To use this config: chsh -s /usr/bin/zsh"
+fi
 
 # --- wallpaper ---
 if [ -f "$ROOT/wallpapers/sunset.png" ]; then
